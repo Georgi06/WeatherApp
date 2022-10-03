@@ -77,10 +77,6 @@ import android.widget.TextView;
                         Intent i = new Intent(MainActivity.this, cityFinder.class);
                         startActivity(i);
                         break;
-                    }if(x1 < x2){
-                    Intent i = new Intent(MainActivity.this, citySave.class);
-                    startActivity(i);
-                    break;
                     }
             }
             return false;
@@ -89,16 +85,7 @@ import android.widget.TextView;
         @Override
         protected void onResume() {
             super.onResume();
-            Intent mIntent=getIntent();
-            String city= mIntent.getStringExtra("City");
-            if(city!=null)
-            {
-                getWeatherForNewCity(city);
-            }
-            else
-            {
                 getWeatherForCurrentLocation();
-            }
 
         }
 
