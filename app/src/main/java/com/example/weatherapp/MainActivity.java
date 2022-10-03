@@ -77,6 +77,10 @@ import android.widget.TextView;
                         Intent i = new Intent(MainActivity.this, cityFinder.class);
                         startActivity(i);
                         break;
+                    }if(x1 < x2){
+                    Intent i = new Intent(MainActivity.this, citySave.class);
+                    startActivity(i);
+                    break;
                     }
             }
             return false;
