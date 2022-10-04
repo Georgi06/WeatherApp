@@ -31,12 +31,41 @@ public class citySave extends AppCompatActivity {
         listItems = new ArrayList<>();
 
        // listItems.add(new citySaveModel("Varna", "C"));
-
+        initData();
 
         adapter = new citySaveAdapter(listItems, this);
 
         recyclerView.setAdapter(adapter);
 
+    }
+
+    private void initData() {
+        listItems = new ArrayList<>();
+
+        listItems.add(new citySaveModel("Varna", "C"));
+        listItems.add(new citySaveModel("Varna", "C"));
+        listItems.add(new citySaveModel("Varna", "C"));
+        listItems.add(new citySaveModel("Varna", "C"));
+        listItems.add(new citySaveModel("Varna", "C"));
+        listItems.add(new citySaveModel("Varna", "C"));
+        listItems.add(new citySaveModel("Varna", "C"));
+        listItems.add(new citySaveModel("Varna", "C"));
+        listItems.add(new citySaveModel("Varna", "C"));
+        listItems.add(new citySaveModel("Varna", "C"));
+        listItems.add(new citySaveModel("Varna", "C"));
+        listItems.add(new citySaveModel("Varna", "C"));
+        listItems.add(new citySaveModel("Varna", "C"));
+        listItems.add(new citySaveModel("Varna", "C"));
+        listItems.add(new citySaveModel("Varna", "C"));
+        listItems.add(new citySaveModel("Varna", "C"));
+        listItems.add(new citySaveModel("Varna", "C"));
+        listItems.add(new citySaveModel("Varna", "C"));
+        listItems.add(new citySaveModel("Varna", "C"));
+        listItems.add(new citySaveModel("Varna", "C"));
+        listItems.add(new citySaveModel("Varna", "C"));
+        listItems.add(new citySaveModel("Varna", "C"));
+        listItems.add(new citySaveModel("Varna", "C"));
+        listItems.add(new citySaveModel("Varna", "C"));
     }
 
     float x1, y1, x2, y2;
