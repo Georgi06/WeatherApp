@@ -39,7 +39,7 @@ public class citySaveAdapter extends RecyclerView.Adapter<citySaveAdapter.ViewHo
         citySaveModel listItem = listItems.get(position);
 
         holder.savedCityTV.setText(listItem.getSavedCityTV());
-        holder.savedCityTV.setText(listItem.getDegreesTV());
+        holder.degreesTV.setText(listItem.getDegreesTV());
     }
 
     @Override
