@@ -5,12 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="100dp">
 
-    <TextView
-        android:id="@+id/degreesTV"
+    <Button
+        android:id="@+id/btnDelete"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Blank"
-        android:textSize="30sp"
+        android:text="Delete"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -22,7 +22,7 @@
         android:text="Blank"
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/degreesTV"
+        app:layout_constraintEnd_toStartOf="@+id/btnDelete"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

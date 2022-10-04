@@ -1,6 +1,5 @@
 package com.example.weatherapp;
 
-import android.app.LauncherActivity;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
+
 public class citySaveAdapter extends RecyclerView.Adapter<citySaveAdapter.ViewHolder> {
 
 
@@ -24,6 +24,8 @@ public class citySaveAdapter extends RecyclerView.Adapter<citySaveAdapter.ViewHo
         this.listItems = listItems;
         this.context = context;
     }
+
+
 
     @NonNull
     @Override
@@ -39,7 +41,6 @@ public class citySaveAdapter extends RecyclerView.Adapter<citySaveAdapter.ViewHo
         citySaveModel listItem = listItems.get(position);
 
         holder.savedCityTV.setText(listItem.getSavedCityTV());
-        holder.degreesTV.setText(listItem.getDegreesTV());
     }
 
     @Override
@@ -50,13 +51,37 @@ public class citySaveAdapter extends RecyclerView.Adapter<citySaveAdapter.ViewHo
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         public TextView savedCityTV;
-        public TextView degreesTV;
+        private citySaveAdapter adapter;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
             savedCityTV = (TextView) itemView.findViewById(R.id.savedCityTV);
-            degreesTV = (TextView) itemView.findViewById(R.id.degreesTV);
+
+//            itemView.findViewById(R.id.btnDelete).setOnClickListener(view ->{
+//                adapter.listItems.remove(getAbsoluteAdapterPosition());
+//                adapter.notifyItemRemoved(getAbsoluteAdapterPosition());
+//
+//             });
+
+//            itemView.setOnLongClickListener(new View.OnLongClickListener() {
+//                @Override
+//                public boolean onLongClick(View v) {
+//                    int pos = getAbsoluteAdapterPosition();
+//                    adapter.onItemLongClick(pos);
+//                    return true;
+//                }
+//            });
+        }
+
+
+        public ViewHolder linkAdapter(citySaveAdapter adapter){
+            this.adapter = adapter;
+            return this;
         }
     }
+
+
+
+
 }

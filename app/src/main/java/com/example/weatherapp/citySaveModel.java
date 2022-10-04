@@ -2,18 +2,17 @@ package com.example.weatherapp;
 
 public class citySaveModel {
     private String savedCityTV;
-    private String degreesTV;
 
-    citySaveModel(String savedCityTV,String degreesTV){
+    citySaveModel(String savedCityTV){
         this.savedCityTV = savedCityTV;
-        this.degreesTV = degreesTV;
+    }
+
+    public static void remove(int position) {
     }
 
     public String getSavedCityTV() {
         return savedCityTV;
     }
 
-    public String getDegreesTV() {
-        return degreesTV;
-    }
+
 }

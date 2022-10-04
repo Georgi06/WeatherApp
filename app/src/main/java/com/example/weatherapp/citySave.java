@@ -41,15 +41,22 @@ public class citySave extends AppCompatActivity {
 
         recyclerView.setAdapter(adapter);
 
+
+
         findViewById(R.id.btnAdd).setOnClickListener(view ->{
 
-            listItems.add(new citySaveModel(saveCity.getText().toString(),"C"));
+            listItems.add(new citySaveModel(saveCity.getText().toString()));
             adapter.notifyItemInserted(listItems.size()-1);
         });
 
     }
 
-//    private void initData() {
+//    public void onItemLongClick(int position){
+//        citySaveModel.remove(position);
+//        adapter.notifyItemRemoved(position);
+//    }
+
+    //    private void initData() {
 //        listItems = new ArrayList<>();
 //
 //        listItems.add(new citySaveModel("V", "C"));
@@ -74,7 +81,6 @@ public class citySave extends AppCompatActivity {
         }
         return false;
     }
-
 
 
 }
