@@ -89,7 +89,16 @@ import android.widget.TextView;
         @Override
         protected void onResume() {
             super.onResume();
+            Intent mIntent=getIntent();
+            String city= mIntent.getStringExtra("City");
+            if(city!=null)
+            {
+                getWeatherForNewCity(city);
+            }
+            else
+            {
                 getWeatherForCurrentLocation();
+            }
 
         }
 
