@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#242343"
+    tools:context=".cityFinder">
+
+    <EditText
+        android:id="@+id/searchCityET"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="false"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:background="@drawable/background"
+        android:gravity="center_vertical"
+        android:hint="Enter City Name"
+        android:imeOptions="actionDone"
+        android:inputType="textAutoCorrect"
+        android:textColor="@color/black"
+        android:textSize="28sp"
+        />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/searchCityET"
+        android:layout_marginTop="2dp"
+        android:background="#242343"
+        tools:context=".cityFinder">
+
+
+        <ImageView
+            android:id="@+id/weatherIconIV"
+            android:layout_width="match_parent"
+            android:layout_height="270dp"
+            android:layout_marginTop="80dp">
+
+        </ImageView>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/weatherIconIV"
+            android:layout_marginBottom="50dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/temperatureTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="30dp"
+                android:text=""
+                android:textColor="#ffffff"
+                android:textSize="50sp"
+                android:textStyle="bold">
+
+            </TextView>
+
+
+            <TextView
+                android:id="@+id/weatherConditionTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="30sp"
+                android:text=""
+                android:textColor="#ffffff"
+                android:textSize="30sp">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/cityNameTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="30sp"
+                android:text=""
+                android:textColor="#ffffff"
+                android:textSize="40sp"
+                android:textStyle="bold">
+
+            </TextView>
+
+        </LinearLayout>
+
+
+
+    </RelativeLayout>
+
+
+</RelativeLayout>
