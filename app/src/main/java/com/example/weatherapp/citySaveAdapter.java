@@ -37,7 +37,6 @@ public class citySaveAdapter extends RecyclerView.Adapter<citySaveAdapter.ViewHo
         View v = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.city_item, parent,false);
         return new ViewHolder(v,listener).linkAdapter(this);
-        //return new citySaveAdapter.ViewHolder(v,listener);
     }
 
     @Override
