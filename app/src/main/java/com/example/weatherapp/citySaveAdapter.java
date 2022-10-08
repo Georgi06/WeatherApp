@@ -21,10 +21,12 @@ public class citySaveAdapter extends RecyclerView.Adapter<citySaveAdapter.ViewHo
 
     private List<citySaveModel> listItems;
     private Context context;
+    private final selectListener listener;
 
-    public citySaveAdapter(List<citySaveModel> listItems, Context context) {
+    public citySaveAdapter(List<citySaveModel> listItems, Context context,selectListener listener) {
         this.listItems = listItems;
         this.context = context;
+        this.listener = listener;
     }
 
 
@@ -34,7 +36,8 @@ public class citySaveAdapter extends RecyclerView.Adapter<citySaveAdapter.ViewHo
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.city_item, parent,false);
-        return new ViewHolder(v).linkAdapter(this);
+        return new ViewHolder(v,listener).linkAdapter(this);
+        //return new citySaveAdapter.ViewHolder(v,listener);
     }
 
     @Override
@@ -58,7 +61,7 @@ public class citySaveAdapter extends RecyclerView.Adapter<citySaveAdapter.ViewHo
 
 
 
-        public ViewHolder(@NonNull View itemView) {
+        public ViewHolder(@NonNull View itemView,selectListener listener) {
             super(itemView);
 
             savedCityTV = (TextView) itemView.findViewById(R.id.savedCityTV);
@@ -74,14 +77,22 @@ public class citySaveAdapter extends RecyclerView.Adapter<citySaveAdapter.ViewHo
 
              });
 
-//            itemView.setOnLongClickListener(new View.OnLongClickListener() {
-//                @Override
-//                public boolean onLongClick(View v) {
-//                    int pos = getAbsoluteAdapterPosition();
-//                    adapter.onItemLongClick(pos);
-//                    return true;
-//                }
-//            });
+
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (listener != null){
+                        int pos = getAbsoluteAdapterPosition();
+
+                        if (pos != RecyclerView.NO_POSITION){
+                            listener.onItemClick(pos);
+                        }
+                    }
+                }
+            });
+
+//
         }
 
         public ViewHolder linkAdapter(citySaveAdapter adapter) {

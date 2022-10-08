@@ -15,7 +15,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class citySave extends AppCompatActivity {
+public class citySave extends AppCompatActivity implements selectListener {
 
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
@@ -43,7 +43,7 @@ public class citySave extends AppCompatActivity {
        // listItems.add(new citySaveModel("Varna", "C"));
         //initData();
 
-        adapter = new citySaveAdapter(listItems, this);
+        adapter = new citySaveAdapter(listItems, this,this);
 
         recyclerView.setAdapter(adapter);
 
@@ -68,19 +68,6 @@ public class citySave extends AppCompatActivity {
 //        listItems.add(new citySaveModel("Varna", "C"));
 //    }
 
-    public void getCityText(){
-        if(savedCity == null){
-
-        }else {
-            savedCity.setOnClickListener(view ->{
-                String newCity= saveCity.getText().toString();
-                Intent intent=new Intent(citySave.this,MainActivity.class);
-                intent.putExtra("City",newCity);
-                startActivity(intent);
-            });
-        }
-
-    }
 
     float x1, y1, x2, y2;
     public boolean onTouchEvent(MotionEvent touchEvent) {
@@ -102,4 +89,16 @@ public class citySave extends AppCompatActivity {
     }
 
 
+    @Override
+    public void onItemClick(int position) {
+        String newCity= saveCity.getText().toString();
+        Intent intent=new Intent(citySave.this,MainActivity.class);
+        intent.putExtra("City",newCity);
+        startActivity(intent);
+    }
+
+//    @Override
+//    public void onBtnClick(int position) {
+//
+//    }
 }
