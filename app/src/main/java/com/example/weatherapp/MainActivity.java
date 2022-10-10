@@ -60,6 +60,12 @@ import android.widget.TextView;
             weatherIcon = findViewById(R.id.weatherIconIV);
             cityName = findViewById(R.id.cityNameTV);
 
+            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
+
+                ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.POST_NOTIFICATIONS},REQUEST_CODE);
+                return;
+            }
+
 
         }
 
@@ -155,6 +161,7 @@ import android.widget.TextView;
                 ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.ACCESS_FINE_LOCATION},REQUEST_CODE);
                 return;
             }
+
             mLocationManager.requestLocationUpdates(Location_Provider, MIN_TIME, MIN_DISTANCE, mLocationListner);
 
         }
@@ -194,6 +201,7 @@ import android.widget.TextView;
                     Toast.makeText(MainActivity.this,"Data Get Success",Toast.LENGTH_SHORT).show();
 
                     weatherData weatherD=weatherData.fromJson(response);
+                    assert weatherD != null;
                     updateUI(weatherD);
 
 

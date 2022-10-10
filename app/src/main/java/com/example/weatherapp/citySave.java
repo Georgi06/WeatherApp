@@ -1,16 +1,23 @@
 package com.example.weatherapp;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
 import android.app.LauncherActivity;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.MotionEvent;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Button;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,6 +30,7 @@ public class citySave extends AppCompatActivity implements selectListener {
     private List<citySaveModel> listItems;
     EditText saveCity;
     TextView savedCity;
+    Button btnAdd;
 
 
     @SuppressLint("MissingInflatedId")
@@ -34,6 +42,7 @@ public class citySave extends AppCompatActivity implements selectListener {
         recyclerView = findViewById(R.id.recyclerView);
         saveCity = findViewById(R.id.newCityET);
         savedCity = findViewById(R.id.savedCityTV);
+        btnAdd = findViewById(R.id.btnAdd);
 
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -47,19 +56,42 @@ public class citySave extends AppCompatActivity implements selectListener {
 
         recyclerView.setAdapter(adapter);
 
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+            NotificationChannel channel = new NotificationChannel("myChannel","MyNotify", NotificationManager.IMPORTANCE_DEFAULT);
+            NotificationManager manager = getSystemService(NotificationManager.class);
+            manager.createNotificationChannel(channel);
+        }
 
 
-        findViewById(R.id.btnAdd).setOnClickListener(view ->{
-
+        btnAdd.setOnClickListener(v -> {
             listItems.add(new citySaveModel(saveCity.getText().toString()));
             adapter.notifyItemInserted(listItems.size()-1);
+
+
+
+            NotificationCompat.Builder  builder = new NotificationCompat.Builder(citySave.this,"Demo Notification");
+            builder.setContentTitle("Item added");
+            builder.setContentText("Demo");
+            builder.setSmallIcon(R.drawable.sunny);
+            builder.setAutoCancel(true);
+
+            NotificationManagerCompat managerCompat = NotificationManagerCompat.from(citySave.this);
+            managerCompat.notify(1,builder.build());
         });
 
-        //getCityText();
 
+//        findViewById(R.id.btnAdd).setOnClickListener(view ->{
+//
+//            listItems.add(new citySaveModel(saveCity.getText().toString()));
+//            adapter.notifyItemInserted(listItems.size()-1);
+//
+//            NotificationCompat.Builder = builder = new NotificationCompat.Builder(MainActivity.this,"Demo Notification");
 
 
     }
+
+
+
 
     //    private void initData() {
 //        listItems = new ArrayList<>();

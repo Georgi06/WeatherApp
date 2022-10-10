@@ -19,6 +19,7 @@
     </androidx.recyclerview.widget.RecyclerView>
 
     <EditText
+        android:inputType="textAutoComplete"
         android:id="@+id/newCityET"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
